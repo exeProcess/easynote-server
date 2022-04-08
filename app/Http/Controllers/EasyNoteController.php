@@ -78,22 +78,9 @@ class EasyNoteController extends Controller
             ]);
         }*/
        if($notes->count() > 0){
-            $note = $notes[0];
-            $body = $note->body.",".$request->body;
-
-            $data = [
-                'title' => $request->title,
-                'body' => $body,
-                'author' => $request->author,
-                'description' => $request->description
-            ];
-            $notes = new EasyNote();
-            $notes->title = $request->title;
-            $notes->body = $body;
-            $notes->author = $request->author;
-            $notes->description = $request->description;
-            return redirect()->to('api/notes/update',$data, $status = 302, $headers = ['method' => 'PUT'], $secure = null); 
-            //return Http::patch("http://127.0.0.1:8000/api/notes/update", $data);
+            return response()->json([
+                "message" => "redirect to update"
+            ]);
         }else{
             $note = new EasyNote();
             $note->title = $request->title;
