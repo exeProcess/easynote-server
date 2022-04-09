@@ -132,7 +132,7 @@ class EasyNoteController extends Controller
         //
         $validator = Validator::make($request->all(), [
             'author' => 'required|string',
-            'text' => 'required|string',
+            'body' => 'required|string',
             'title' => 'required|string'
         ]);
 
@@ -144,7 +144,7 @@ class EasyNoteController extends Controller
         }
         $easyNote->title = $request->title;
         $easyNote->author = $request->author;
-        $easyNote->body = $request->body;
+        $easyNote->body = $easyNote->body.",".$request->body;
         $easyNote->description = $request->description;
 
         if($this->user()->easynotes()->save($easyNote)){
