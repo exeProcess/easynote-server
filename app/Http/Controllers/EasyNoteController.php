@@ -133,7 +133,7 @@ class EasyNoteController extends Controller
         $validator = Validator::make($request->all(), [
             'author' => 'required|string',
             'text' => 'required|string',
-            'title' => 'requires|string'
+            'title' => 'required|string'
         ]);
 
         if($validator->fails()){
