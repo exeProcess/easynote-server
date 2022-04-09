@@ -148,7 +148,7 @@ class EasyNoteController extends Controller
         $easyNote->body = $body;
         $easyNote->description = $request->description;
 
-        if($this->user->easynotes()->save($easyNote)){
+        if($this->user->easynotes()->update($easyNote)){
             return response()->json([
                 'status' => true,
                 'note' => "success"
