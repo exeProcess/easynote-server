@@ -79,7 +79,7 @@ class EasyNoteController extends Controller
         }*/
        if($notes->count() > 0){
             return response()->json([
-                "message" => "redirect to update"
+                "message" => "update"
             ]);
         }else{
             $note = new EasyNote();
@@ -91,7 +91,7 @@ class EasyNoteController extends Controller
             if($this->user->easynotes()->save($note)){
                 return response()->json([
                     'status' => true,
-                    'note' => "success"
+                    'message' => "success"
                 ]);
             }
         }
