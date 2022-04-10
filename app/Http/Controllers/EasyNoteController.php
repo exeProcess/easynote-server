@@ -163,7 +163,7 @@ class EasyNoteController extends Controller
         }*/
         return response()->json(
             $notes
-        ];
+        );
     }
 
     /**
