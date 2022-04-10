@@ -145,10 +145,7 @@ class EasyNoteController extends Controller
         $notes = EasyNote::select("*")->where(
             'title', $request->title)->where('author', $request->author)->where('created_by', $this->user->id)->get();
         $body = $notes[0]->body.",".$request->body;
-        $easyNote->title = $request->title;
-        $easyNote->author = $request->author;
-        //$easyNote->body = $body;
-        $easyNote->description = $request->description;
+        
         $note = $easyNote->update([
             'title' => $request->title,
             'author' => $request->author,
