@@ -146,13 +146,13 @@ class EasyNoteController extends Controller
             'title', $request->title)->where('author', $request->author)->where('created_by', $this->user->id)->get();
         $body = $notes[0]->body.",".$request->body;
         
-        $note = $easyNote->update([
+        $note = [
             'title' => $request->title,
             'author' => $request->author,
             'body' => $body,
             'description' => $request->description
-        ]);
-       /* if($this->user->easynotes()->update($easyNote)){
+        ];
+       if($this->user->easynotes()->update($note)){
             return response()->json([
                 'status' => true,
                 'note' => "success"
@@ -162,10 +162,7 @@ class EasyNoteController extends Controller
                 'status' => false,
                 'message' => "note can not be saved"
             ]);
-        }*/
-        return response()->json([
-            'note' => $note
-        ]);
+        }
     }
 
     /**
