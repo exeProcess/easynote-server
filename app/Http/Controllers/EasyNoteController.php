@@ -142,7 +142,7 @@ class EasyNoteController extends Controller
                 'error' => $validator->errors()
             ], 400);
         }
-        $body = $easyNote->body.",".$request->body;
+        $body = $easyNote->body;
         $easyNote->title = $request->title;
         $easyNote->author = $request->author;
         $easyNote->body = $body;
