@@ -147,7 +147,7 @@ class EasyNoteController extends Controller
         //$body = $notes->body;
         $easyNote->title = $request->title;
         $easyNote->author = $request->author;
-        $easyNote->body = $body;
+        //$easyNote->body = $body;
         $easyNote->description = $request->description;
 
        /* if($this->user->easynotes()->update($easyNote)){
