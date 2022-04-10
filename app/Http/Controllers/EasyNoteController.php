@@ -161,7 +161,9 @@ class EasyNoteController extends Controller
                 'message' => "note can not be saved"
             ]);
         }*/
-        return response($notes);
+        return response()->json(
+            $notes[0]->body
+        );
     }
 
     /**
