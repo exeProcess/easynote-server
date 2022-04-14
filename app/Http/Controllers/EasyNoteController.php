@@ -104,15 +104,11 @@ class EasyNoteController extends Controller
      * @param  \App\Models\EasyNote  $easyNote
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id)
     {
         //
-        $notes = EasyNote::select("*")->where(
-            'title', $request->id)->where('author', $request->author)->where('created_by', $this->user->id)->get();
-        return response()->json([
-            "status" => true,
-            "note" => $notes
-        ]);
+        $notes = EasyNote::find($id);
+        return response()->json($notes);
     }
 
     /**
