@@ -65,18 +65,7 @@ class EasyNoteController extends Controller
 
         $notes = EasyNote::select("*")->where(
             'title', $request->title)->where('author', $request->author)->where('created_by', $this->user->id)->get();
-       /*$note = new EasyNote();
-        $note->title = $request->title;
-        $note->author = $request->author;
-        $note->body = $request->body;
-        $note->description = $request->description;
-
-        if($this->user->easynotes()->save($note)){
-            return response()->json([
-                'status' => true,
-                'note' => "success"
-            ]);
-        }*/
+       
        if($notes->count() > 0){
             return response()->json([
                 "message" => "update"
@@ -146,7 +135,7 @@ class EasyNoteController extends Controller
         }
         $notes = EasyNote::select("*")->where(
             'title', $request->title)->where('author', $request->author)->where('created_by', $this->user->id)->get();
-        $body = $notes[0]->body.",".$request->body;
+        $body = $notes[0]->body."%".$request->body;
         
         $note = [
             'title' => $request->title,
