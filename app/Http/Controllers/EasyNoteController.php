@@ -107,6 +107,12 @@ class EasyNoteController extends Controller
     public function show(EasyNote $easyNote)
     {
         //
+        $notes = EasyNote::select("*")->where(
+            'title', $request->id)->where('author', $request->author)->where('created_by', $this->user->id)->get();
+        return response()->json([
+            "status" => true,
+            "note" => $notes
+        ]);
     }
 
     /**

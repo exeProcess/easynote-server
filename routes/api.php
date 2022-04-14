@@ -35,6 +35,7 @@ Route::group([
     //Route::resource('notes', EasyNoteController::class);
     Route::post('note/post', [EasyNoteController::class, 'store']);
     Route::get('notes/index', [EasyNoteController::class, 'index']);
+    Route::get('notes/show', [EasyNoteController::class, 'show']);
     Route::patch('note/update', [EasyNoteController::class, 'update']);
 
 });
