@@ -104,7 +104,7 @@ class EasyNoteController extends Controller
      * @param  \App\Models\EasyNote  $easyNote
      * @return \Illuminate\Http\Response
      */
-    public function show(EasyNote $easyNote)
+    public function show(Request $request)
     {
         //
         $notes = EasyNote::select("*")->where(
